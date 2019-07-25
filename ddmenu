@@ -1,0 +1,6 @@
+#!/bin/sh
+
+#Provide default/fallback dmenu settings
+ddmenu='dmenu -fn "Inconsolata-20" -nf '#f3f4f5' -nb '#2f343f' -sf '#1d2021' -sb '#e58200' '$@
+
+cat | $ddmenu

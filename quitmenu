@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Dmenu to choose from poweroff, restart or logout
+
+choices="cancel\nlogout\npoweroff\nrestart"
+prompt="Please choose:"
+
+choice=$(echo -e "$choices" | ddmenu -sb "#ad1616" -p "choose")
+
+case "$choice" in 
+    cancel) exit ;;
+    logout) i3-msg exit & ;;
+    poweroff) systemctl poweroff & ;;
+    restart) systemctl reboot & ;;
+esac

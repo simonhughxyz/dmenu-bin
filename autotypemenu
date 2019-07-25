@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# Autotype input to selected window
+# Can autotype from primary clipboard
+
+# file to save autotype history to
+# keep it in /run to make it non persistant
+hfile="$XDG_RUNTIME_DIR/autotypehistory"
+
+# if hfile file doesent exist make it
+[ -f "$hfile" ] || touch "$hfile"
+
+# get primary selection and search history from $hfile and pass into dmenu
+selection=$(echo "$(xsel)" | tac - $hfile | awk 'NF' | dmenu -i -l 10 -p "Text to Autotype: ") || exit 1
+
+xdotool type "$selection"
+
+# append autotype to history file
+echo "$selection" >> $hfile

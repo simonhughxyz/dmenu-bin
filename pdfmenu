@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+# Gives a dmenu list of all files in the pdfs dir
+
+pdf_dir="$HOME/pdfs"
+
+# get choice of pdf
+choice=$(ls $pdf_dir | ddmenu -i -l 10)
+
+# if nothing is chosen then exit
+[ "$choice" != "" ] || exit
+
+# open pdf using zathura
+zathura "$pdf_dir/$choice"

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+
+# Gives a dmenu list of all files in the pdfs dir
+
+dir="$HOME/.dotfiles"
+
+# get choice of pdf
+choice=$(find $dir -type f -follow -print | ddmenu -i -l 10)
+
+# if nothing is chosen then exit
+[ "$choice" != "" ] || exit
+
+# open pdf using zathura
+st -e vim "$choice"
