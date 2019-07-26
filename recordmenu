@@ -22,6 +22,7 @@ killrecording(){
     # even after SIGTERM, ffmpeg may still run, so SIGKILL it.
     kill -9 "$recpid"
     sleep 1 # no idea why but wont exit without sleep
+    refbar
     exit
 }
 
@@ -46,6 +47,7 @@ askrecording() { \
 }
 
 screencast(){
+    refbar
     ffmpeg -y \
     -vaapi_device /dev/dri/renderD128 \
     -f x11grab \
@@ -62,6 +64,7 @@ screencast(){
 }
 
 window(){
+    refbar
     xid=$(xprop -root _NET_ACTIVE_WINDOW | awk '{print $5}')
 
     gst-launch-1.0 -q ximagesrc xid="$xid" use-damage=0 \
@@ -75,6 +78,7 @@ window(){
 }
 
 cpucast(){
+    refbar
     ffmpeg -y \
     -f x11grab \
     -video_size $res \
@@ -89,6 +93,7 @@ cpucast(){
 }
 
 video(){
+    refbar
     ffmpeg -y \
     -vaapi_device /dev/dri/renderD128 \
     -f x11grab \
@@ -103,6 +108,7 @@ video(){
 }
 
 cpuvideo() {
+    refbar
     ffmpeg \
 	-f x11grab \
     -video_size $res \
@@ -114,6 +120,7 @@ cpuvideo() {
 }
 
 audio() { \
+    refbar
 	ffmpeg -y \
 	-f alsa -i default \
 	-c:a aac \
