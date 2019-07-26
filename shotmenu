@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/sh
 
-# Dmenu to choose from poweroff, restart or logout
+# Dmenu to choose window or select shot
 
 choices="Cancel\nWindow\nSelect"
 prompt="Please choose:"
@@ -8,7 +8,7 @@ prompt="Please choose:"
 choice=$(echo -e "$choices" | ddmenu -sb "#ad1616" -p "choose")
 
 case "$choice" in 
-    Cancel) exit ;;
+    Cancel) exit ;z\;
     Window) shot -u && exit & ;;
     Select) shot -s && exit & ;;
 esac
