@@ -1,2 +1,2 @@
 # DMENU SCRIPTS
-These are just a colection of scripts to use with DMENU for personal use.
+These are just a collection of scripts to use with dmenu for personal use.
