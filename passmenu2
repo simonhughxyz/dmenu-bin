@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# PASSMENU2
+# Simon Hugh Moore
+#
+# Passmenu script which gives you a choice between retreving pass, login or OTP 
+# Requires pass-otp to get the OTP
+
+pass_dir="$HOME/.password-store"
+lastpass="$XDG_RUNTIME_DIR/lastpass"
+
+write(){
+    xdotool type --clearmodifiers "$1"
+}
+
+cd $PASSWORD_STORE_DIR
+cd "$HOME/.password-store/"
+password_files="$(find * -type f)"
+
+password=$(printf '%s\n' "$(cat $lastpass)" "${password_files}" | sed 's|.gpg||g' | dmenu -i) || exit
+
+choice=$(printf 'Pass\nLogin\nOTP\nURL' | dmenu -i) || exit
+
+echo "$password" > "$lastpass"
+
+case "$choice" in
+    Pass) write $(pass show "$password" | head -n1);;
+    Login) write $(pass show "$password" | rg "login: " | cut -d' ' -f 2);;
+    OTP) write $(pass otp show "$password");;
+    URL) $BROWSER --new-tab "$(pass url "$password")";;
+esac

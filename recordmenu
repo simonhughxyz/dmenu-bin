@@ -143,11 +143,11 @@ listmenu() {
 }
 
 case "$1" in
-	screencast) screencast;;
-	audio) audio;;
-	video) video;;
-	kill) killrecording;;
-    list) list;;
-    listmenu) listmenu;;
-	*) ([ -f "$recpid_file" ] && asktoend && exit) || askrecording;;
+	screencast)  screencast;;
+	audio)       audio;;
+	video)       video;;
+	kill)        killrecording;;
+    list)        list;;
+    listmenu)    listmenu;;
+	*)           ([ -f "$recpid_file" ] && asktoend && exit) || askrecording;;
 esac

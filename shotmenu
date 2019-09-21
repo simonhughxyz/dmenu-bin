@@ -5,10 +5,10 @@
 choices="Cancel\nWindow\nSelect"
 prompt="Please choose:"
 
-choice=$(echo -e "$choices" | ddmenu -sb "#ad1616" -p "choose")
+choice=$(echo "$choices" | ddmenu -sb "#ad1616" -p "choose")
 
 case "$choice" in 
-    Cancel) exit ;z\;
+    Cancel) exit ;;
     Window) shot -u && exit & ;;
     Select) shot -s && exit & ;;
 esac
