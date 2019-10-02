@@ -6,7 +6,7 @@
 pdf_dir="$HOME/pdfs"
 
 # get choice of pdf
-choice=$(ls $pdf_dir | ddmenu -i -l 10)
+choice=$(ls $pdf_dir | dmenu -i -l 10)
 
 # if nothing is chosen then exit
 [ "$choice" != "" ] || exit
