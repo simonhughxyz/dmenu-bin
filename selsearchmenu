@@ -14,7 +14,7 @@ hfile="$XDG_RUNTIME_DIR/selsearchhistory"
 selection=$(echo "$(xsel)" | tac - $hfile | awk 'NF' | dmenu -i -l 10 -p "Search Term: ") || exit 1
 
 
-se[0]="Duck Duck Go"
+se[0]="Start Page"
 se[1]="You Tube"
 se[2]="Git Hub"
 se[3]="Wikipedia"
@@ -22,7 +22,7 @@ se[4]="Arch Wiki"
 se[5]="HTTP"
 se[6]="Images"
 se[7]="IMDB"
-se[8]="Start Page"
+se[8]="Duck Duck Go"
 se[9]="google"
 se[10]="Amazon"
 se[11]="Map"
@@ -36,7 +36,7 @@ choice=$(printf "%s\n" "${se[@]}" | dmenu -i -p "Search \"$(echo "$selection" | 
 
 # get apropriate url for choice
 if [ "$choice" = "${se[0]}" ]; then
-    url="https://duckduckgo.com/?q=$selection&kae=d&kp=-2&kz=1&kav=1&kn=1&k1=-1&kaj=m&kam=osm&kay=b&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kba=-1&kw=n&kh=1&k5=2&t=h_&ia=web"
+    url="https://www.startpage.com/do/search?query=$selection"
 elif [ "$choice" = "${se[1]}" ]; then
     url="https://www.youtube.com/results?search_query=$selection"
 elif [ "$choice" = "${se[2]}" ]; then
@@ -52,7 +52,7 @@ elif [ "$choice" = "${se[6]}" ]; then
 elif [ "$choice" = "${se[7]}" ]; then
     url="https://www.imdb.com/find?ref_=nv_sr_fn&q=$selection&s=all"
 elif [ "$choice" = "${se[8]}" ]; then
-    url="https://www.startpage.com/do/search?query=$selection"
+    url="https://duckduckgo.com/?q=$selection&kae=d&kp=-2&kz=1&kav=1&kn=1&k1=-1&kaj=m&kam=osm&kay=b&kak=-1&kax=-1&kaq=-1&kap=-1&kao=-1&kau=-1&kba=-1&kw=n&kh=1&k5=2&t=h_&ia=web"
 elif [ "$choice" = "${se[9]}" ]; then
     url="https://www.google.com/search?q=$selection"
 elif [ "$choice" = "${se[10]}" ]; then
