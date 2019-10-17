@@ -2,7 +2,7 @@
 
 # Add bookmark to buku with tags
 
-URL=$(xsel)
+URL=$(xclip -sel clip)
 
 tags=$(echo "FOR $URL" | dmenu -i -p "TAGS: ")
 

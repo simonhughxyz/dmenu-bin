@@ -2,7 +2,7 @@
 
 dir="$PDFS"
 
-url=$(xsel -b)
+url=$(xclip -sel clip)
 
 title=$(gethtmltitle "$url" | tr '[:upper:]' '[:lower:]' \
     | sed 's/&/ and /g;
