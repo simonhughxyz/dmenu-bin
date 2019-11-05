@@ -5,7 +5,7 @@
 choices="Window\nSelect"
 prompt="Please choose:"
 
-choice=$(echo "$choices" | dmenu -sb "#ad1616" -p "choose")
+choice=$(echo "$choices" | dmenu -p "choose")
 
 case "$choice" in 
     Window) shot -u && exit & ;;
