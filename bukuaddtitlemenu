@@ -2,7 +2,7 @@
 
 # Add bookmark to buku with tags and title
 
-URL=$(xsel)
+URL=$(xclip -sel clip -o)
 
 
 title=$(gethtmltitle "$URL" | dmenu -i -p "TITLE for $URL: ")

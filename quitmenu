@@ -2,14 +2,13 @@
 
 # Dmenu to choose from poweroff, restart or logout
 
-choices="cancel\nlogout\npoweroff\nrestart"
-prompt="Please choose:"
+choices="hybernate\nexit\npoweroff\nreboot"
 
-choice=$(echo -e "$choices" | dmenu -sb "#ad1616" -p "choose")
+choice=$(echo -e "$choices" | dmenu -sb "#ad1616" -p "Quit Menu: ")
 
 case "$choice" in 
-    cancel) exit ;;
-    logout) i3-msg exit & ;;
-    poweroff) shutdown -h now & ;;
-    restart) systemctl reboot & ;;
+    hybernate) sudo ZZZ;; 
+    exit) killall xinit;;
+    poweroff) sudo shutdown -h now & ;;
+    reboot) sudo reboot & ;;
 esac
