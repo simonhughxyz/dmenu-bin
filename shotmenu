@@ -2,13 +2,12 @@
 
 # Dmenu to choose window or select shot
 
-choices="Cancel\nWindow\nSelect"
+choices="Window\nSelect"
 prompt="Please choose:"
 
-choice=$(echo "$choices" | ddmenu -sb "#ad1616" -p "choose")
+choice=$(echo "$choices" | dmenu -sb "#ad1616" -p "choose")
 
 case "$choice" in 
-    Cancel) exit ;;
     Window) shot -u && exit & ;;
     Select) shot -s && exit & ;;
 esac
