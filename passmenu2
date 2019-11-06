@@ -13,19 +13,41 @@ write(){
     xdotool type --clearmodifiers "$1"
 }
 
+get_pass(){
+    pass show "$password" | head -n1
+}
+
+get_login(){
+    pass show "$password" | grep "login: " | cut -d' ' -f 2
+}
+
+# Exploits a common design pattern in login fields to
+# auto login by following the pattern of:
+# type login --> press tab key --> type pass --> press return
+auto_login(){
+    write $(get_login)
+    sleep 0.1
+    xdotool key Tab
+    sleep 0.1
+    write $(get_pass)
+    sleep 0.1
+    xdotool key Return
+}
+
 cd $PASSWORD_STORE_DIR
 cd "$HOME/.password-store/"
 password_files="$(find * -type f)"
 
 password=$(printf '%s\n' "$(cat $lastpass)" "${password_files}" | sed 's|.gpg||g' | dmenu -i) || exit
 
-choice=$(printf 'Pass\nLogin\nOTP\nURL' | dmenu -i) || exit
+choice=$(printf '*\nURL\nOTP\nPass\nLogin' | dmenu -i) || exit
 
 echo "$password" > "$lastpass"
 
 case "$choice" in
-    Pass) write $(pass show "$password" | head -n1);;
-    Login) write $(pass show "$password" | rg "login: " | cut -d' ' -f 2);;
+    "*") auto_login;;
+    Pass) write $(get_pass);;
+    Login) write $(get_login);;
     OTP) write $(pass otp show "$password");;
     URL) $BROWSER --new-tab "$(pass url "$password")";;
 esac
