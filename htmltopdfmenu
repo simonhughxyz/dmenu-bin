@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# HTMLTOPDFMENU
+# Simon H Moore
+#
+# Takes a URL through dmenu and downloads a html page as a pdf.
+# Can get the URL through clipboard.
+# Requires htmltopdf, dmenu and xclip.
+
 dir="$PDFS"
 
 url=$(xclip -sel clip)
