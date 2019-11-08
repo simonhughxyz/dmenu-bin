@@ -3,20 +3,23 @@
 # PASSMENU2
 # Simon Hugh Moore
 #
-# Passmenu script which gives you a choice between retreving pass, login or OTP 
+# Passmenu script which gives you a choice between retrieving pass, login or OTP 
 # Requires pass-otp to get the OTP
 
 pass_dir="$HOME/.password-store"
-lastpass="$XDG_RUNTIME_DIR/lastpass"
+lastpass="$XDG_RUNTIME_DIR/lastpass" # store last pass accessed (pun intended)
 
+# type out using xdotool
 write(){
     xdotool type --clearmodifiers "$1"
 }
 
+# gets pass from password-store
 get_pass(){
     pass show "$password" | head -n1
 }
 
+# gets login from password-store, login must have a prefix of `login: `
 get_login(){
     pass show "$password" | grep "login: " | cut -d' ' -f 2
 }
@@ -38,16 +41,19 @@ cd $PASSWORD_STORE_DIR
 cd "$HOME/.password-store/"
 password_files="$(find * -type f)"
 
+# get pass file using dmenu
 password=$(printf '%s\n' "$(cat $lastpass)" "${password_files}" | sed 's|.gpg||g' | dmenu -i) || exit
 
+# choose what to get from pass file using dmenu
 choice=$(printf '*\nURL\nOTP\nPass\nLogin' | dmenu -i) || exit
 
+# store the chosen pass file name in lastpass file
 echo "$password" > "$lastpass"
 
 case "$choice" in
-    "*") auto_login;;
-    Pass) write $(get_pass);;
-    Login) write $(get_login);;
-    OTP) write $(pass otp show "$password");;
-    URL) $BROWSER --new-tab "$(pass url "$password")";;
+    "*") auto_login;;                                   # Writes both login and pass
+    Pass) write $(get_pass);;                           # autotype pass
+    Login) write $(get_login);;                         # autotype login
+    OTP) write $(pass otp show "$password");;           # autotype OTP
+    URL) $BROWSER --new-tab "$(pass url "$password")";; # Visit URL
 esac
