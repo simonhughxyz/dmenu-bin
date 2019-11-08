@@ -11,7 +11,7 @@ hfile="$XDG_RUNTIME_DIR/autotypehistory"
 [ -f "$hfile" ] || touch "$hfile"
 
 # get clipboard selection and search history from $hfile and pass into dmenu
-selection=$(echo "$(xclip -sel clip)" | tac - $hfile | awk 'NF' | dmenu -i -l 10 -p "Text to Autotype: ") || exit 1
+selection=$(echo "$(xclip -o -sel clip)" | tac - $hfile | awk 'NF' | dmenu -i -l 10 -p "Text to Autotype: ") || exit 1
 
 # autotype selection
 xdotool type --clearmodifiers "$selection"
