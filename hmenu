@@ -1,5 +1,0 @@
-#!/bin/bash -i
-
-choice=$(history | dmenu -l 20)
-echo $choice
-history | tail
