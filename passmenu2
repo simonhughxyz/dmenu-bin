@@ -37,8 +37,8 @@ auto_login(){
     xdotool key Return
 }
 
-cd $PASSWORD_STORE_DIR
-cd "$HOME/.password-store/"
+# got to password-store directory and get a list of files.
+cd $pass_dir
 password_files="$(find * -type f)"
 
 # get pass file using dmenu
