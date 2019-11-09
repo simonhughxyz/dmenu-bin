@@ -33,6 +33,6 @@ list() {
 
 
 case "$1" in
-    list) list;;
-    screenshot) screenshot;;
+    list | -l) list;;
+    screenshot | -s) screenshot;;
 esac
