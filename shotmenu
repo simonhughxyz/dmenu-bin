@@ -9,8 +9,10 @@
 # 
 # Requires dmenu and shot to work.
 
+# Get user choice
 choice=$(echo "Window\nSelect" | dmenu -p "choose")
 
+# Perform chosen screen shot
 case "$choice" in 
     Window) shot -u && exit & ;;
     Select) shot -s && exit & ;;
