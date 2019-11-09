@@ -6,7 +6,7 @@
 # Gives a list of options to hibernate, exit (logout), shutdown or reboot.
 
 # List of choices to pass to dmenu
-choices="hybernate\nexit\npoweroff\nreboot"
+choices="hybernate\nexit\nshutdown\nreboot"
 
 # get choice form dmenu
 choice=$(echo -e "$choices" | dmenu -sb "#ad1616" -p "Quit Menu: ")
@@ -14,6 +14,6 @@ choice=$(echo -e "$choices" | dmenu -sb "#ad1616" -p "Quit Menu: ")
 case "$choice" in 
     hibernate) sudo ZZZ;; 
     exit) killall xinit;;
-    poweroff) sudo shutdown -h now & ;;
+    shutdown) sudo shutdown -h now & ;;
     reboot) sudo reboot & ;;
 esac
