@@ -9,10 +9,7 @@
 # 
 # Requires dmenu and shot to work.
 
-choices="Window\nSelect"
-prompt="Please choose:"
-
-choice=$(echo "$choices" | dmenu -p "choose")
+choice=$(echo "Window\nSelect" | dmenu -p "choose")
 
 case "$choice" in 
     Window) shot -u && exit & ;;
