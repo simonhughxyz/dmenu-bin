@@ -8,9 +8,7 @@
 # in the primary selection and clipboard. 
 # Requires xclip and dmenu to work.
 
-chosen=$(grep -v "#" ~/.config/emoji | dmenu -i -l 20)
-
-[ "$chosen" != "" ] || exit
+chosen=$(grep -v "#" ~/.config/emoji | dmenu -i -l 20) || exit
 
 emoji=$(echo "$chosen" | awk '{print $1}')
 echo "$emoji" | tr -d '\n' | xclip -f | xclip -sel clip
