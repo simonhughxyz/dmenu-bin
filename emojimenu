@@ -18,7 +18,7 @@ chosen=$(grep -v "#" "$emoji_file" | dmenu -i -l 20) || exit
 emoji=$(echo "$chosen" | awk '{print $1}')
 
 # put emoji character in both primary and clipboard selection
-echo "$emoji" | tr -d '\n' | xclip -f | xclip -sel clip
+echo "$emoji" | xclip -r -f | xclip -sel clip
 
 # notify user of action
 notify-send "$emoji copied to primary and clipboard." &
