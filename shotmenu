@@ -1,6 +1,13 @@
 #!/bin/sh
 
-# Dmenu to choose window or select shot
+# SHOTMENU
+# Simon H Moore
+# 
+# Gives a list of screen shot options:
+# Window: screen shot the currently focused window.
+# Select: select and area with your mouse to screen shot.
+# 
+# Requires dmenu and shot to work.
 
 choices="Window\nSelect"
 prompt="Please choose:"
