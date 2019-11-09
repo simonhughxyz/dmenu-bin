@@ -11,10 +11,7 @@
 pdf_dir="$HOME/pdfs"
 
 # get choice of pdf
-choice=$(ls $pdf_dir | dmenu -i -l 10)
-
-# if nothing is chosen then exit
-[ "$choice" != "" ] || exit
+choice=$(ls $pdf_dir | dmenu -i -l 10) || exit
 
 # open pdf using zathura
 zathura "$pdf_dir/$choice"
