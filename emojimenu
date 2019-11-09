@@ -12,6 +12,6 @@ chosen=$(grep -v "#" ~/.config/emoji | dmenu -i -l 20)
 
 [ "$chosen" != "" ] || exit
 
-c=$(echo "$chosen" | sed "s/ .*//")
+emoji=$(echo "$chosen" | sed "s/ .*//")
 echo "$c" | tr -d '\n' | xclip -f | xclip -sel clip
-notify-send "$c copied to primary and clipboard." &
+notify-send "$emoji copied to primary and clipboard." &
