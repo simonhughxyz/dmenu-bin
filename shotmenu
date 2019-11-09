@@ -7,13 +7,34 @@
 # Window: screen shot the currently focused window.
 # Select: select and area with your mouse to screen shot.
 # 
-# Requires dmenu and shot to work.
+# Requires dmenu, scrot and sxiv to work.
 
-# Get user choice
-choice=$(echo "Window\nSelect" | dmenu -p "choose")
+screenshot() {
+    # Gives a list of screen shot options:
 
-# Perform chosen screen shot
-case "$choice" in 
-    Window) shot -u && exit & ;;
-    Select) shot -s && exit & ;;
+    # Get user choice
+    choice=$(echo "Window\nSelect" | dmenu -p "choose")
+
+    # Perform chosen screen shot
+    case "$choice" in 
+        Window) shot -u && exit & ;; # screenshot currently focused window
+        Select) shot -s && exit & ;; # screenshot selected area
+    esac
+}
+
+list() {
+    # list all screenshots and open selected screenshot in sxiv
+    shots_dir=~/Pictures/shots/
+    
+    # get choice of screenshot
+    choice=$(ls $shots_dir | dmenu -i -l 10) || exit
+
+    # open selected screenshot in sxiv
+    sxiv "$shots_dir/$choice"
+}
+
+
+case "$1" in
+    list) list;;
+    screenshot) screenshot;;
 esac
