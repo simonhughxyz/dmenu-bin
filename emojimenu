@@ -15,7 +15,3 @@ chosen=$(grep -v "#" ~/.config/emoji | dmenu -i -l 20)
 c=$(echo "$chosen" | sed "s/ .*//")
 echo "$c" | tr -d '\n' | xclip
 notify-send "'$c' copied to primary." &
-
-s=$(echo "$chosen" | sed "s/.*; //" | awk '{print $1}')
-echo "$s" | tr -d '\n' | xclip -sel clip
-notify-send "'$s' copied to clipboard." &
