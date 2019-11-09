@@ -27,7 +27,7 @@ list() {
     shots_dir=~/Pictures/shots/
     
     # get choice of screenshot
-    choice=$(ls $shots_dir | dmenu -i -l 10) || exit
+    choice=$(ls -r $shots_dir | dmenu -i -l 10) || exit
 
     # open selected screenshot in sxiv
     sxiv "$shots_dir/$choice"
