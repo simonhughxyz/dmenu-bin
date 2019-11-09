@@ -3,9 +3,7 @@
 # SHOTMENU
 # Simon H Moore
 # 
-# Gives a list of screen shot options:
-# Window: screen shot the currently focused window.
-# Select: select and area with your mouse to screen shot.
+# Takes a screenshot or opens screenshot from screenshot dir using dmenu.
 # 
 # Requires dmenu, scrot and sxiv to work.
 
