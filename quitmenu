@@ -7,7 +7,7 @@
 # hibernate, sleep, exit (logout), shutdown or reboot.
 
 # List of choices to pass to dmenu
-choices="hybernate\nsleep\nexit\nshutdown\nreboot"
+choices="hibernate\nsleep\nexit\nshutdown\nreboot"
 
 # get choice form dmenu
 choice=$(echo -e "$choices" | dmenu -sb "#ad1616" -p "Quit Menu: ")
