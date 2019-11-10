@@ -8,7 +8,7 @@
 # 
 # Requires dmenu to work.
 
-# location of file containing one Unicode characters
+# location of file containing Unicode characters
 uc_file=$1
 
 # get chosen Unicode characters from dmenu
