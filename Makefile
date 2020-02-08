@@ -1,3 +1,4 @@
+PROJECT_NAME := "dmenu-bin"
 PREFIX := /usr/local
 SRC_PREFIX := ./src
 SRC := $(patsubst $(SRC_PREFIX)/%, %, $(wildcard ./src/*.sh))
@@ -14,13 +15,13 @@ all:
 .PHONY: install
 install: $(patsubst %, install_%, $(SRC))
 	@echo
-	@echo "Finished installing dmenu-bin!"
+	@echo "Finished installing $(PROJECT_NAME)!"
 
 ## uninstall : Uninstall all scripts.
 .PHONY: uninstall
 uninstall: $(patsubst $(PREFIX)/bin/%, uninstall_%, $(INSTALL_PATH))
 	@echo
-	@echo "Finished uninstalling dmenu-bin!"
+	@echo "Finished uninstalling $(PROJECT_NAME)!"
 
 ## install_SCRIPT : Install individual script.
 .PHONY: install_%
