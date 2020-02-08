@@ -11,7 +11,7 @@ all:
 	@echo "Run 'make install' to install all scripts."
 	@echo
 	@echo "Run 'make install-SCRIPT' to install individual scripts."
-	@echo "For example: 'make install_$(word 1, $(SRC))' to install the $(word 1, $(SRC)) script."
+	@echo "For example: 'make install-$(word 1, $(SRC))' to install the $(word 1, $(SRC)) script."
 
 ## install : Install all scripts.
 .PHONY: install
