@@ -14,13 +14,13 @@ all:
 .PHONY: install
 install: $(patsubst %, install_%, $(SRC))
 	@echo
-	@echo "Finished installing fzf-bin!"
+	@echo "Finished installing dmenu-bin!"
 
 ## uninstall : Uninstall all scripts.
 .PHONY: uninstall
 uninstall: $(patsubst $(PREFIX)/bin/%, uninstall_%, $(INSTALL_PATH))
 	@echo
-	@echo "Finished uninstalling fzf-bin!"
+	@echo "Finished uninstalling dmenu-bin!"
 
 ## install_SCRIPT : Install individual script.
 .PHONY: install_%
