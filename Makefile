@@ -6,6 +6,8 @@ INSTALL_PATH := $(patsubst %.sh, $(PREFIX)/bin/%, $(SRC))
 
 .PHONY: all
 all:
+	@echo "==== $(PROJECT_NAME) ===="
+	@echo
 	@echo "Run 'make install' to install all scripts."
 	@echo
 	@echo "Run 'make install_SCRIPT' to install individual scripts."
