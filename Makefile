@@ -41,9 +41,10 @@ uninstall_%: $(PREFIX)/bin/%
 ## variables : Print variables.
 .PHONY: variables
 variables:
-	@echo SRC_PREFIX: $(SRC_PREFIX)
-	@echo PREFIX: $(PREFIX)
-	@echo SRC: $(SRC)
+	@echo PROJECT_NAME: $(PROJECT_NAME)
+	@echo SRC_PREFIX:   $(SRC_PREFIX)
+	@echo PREFIX:       $(PREFIX)
+	@echo SRC:          $(SRC)
 	@echo INSTALL_PATH: $(INSTALL_PATH)
 
 ## help : Print help message.
