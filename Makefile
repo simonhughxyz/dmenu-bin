@@ -12,6 +12,9 @@ all:
 	@echo
 	@echo "Run 'make install-SCRIPT' to install individual scripts."
 	@echo "For example: 'make install-$(word 1, $(SRC))' to install the $(word 1, $(SRC)) script."
+	@echo
+	@echo "Make has to have write permission to the install directory '$(PREFIX)'."
+	@echo "This usually means running make with elevated privileges \`sudo make\`."
 
 ## install : Install all scripts.
 .PHONY: install
