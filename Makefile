@@ -15,25 +15,25 @@ all:
 
 ## install : Install all scripts.
 .PHONY: install
-install: $(patsubst %, install_%, $(SRC))
+install: $(patsubst %, install-%, $(SRC))
 	@echo
 	@echo "Finished installing $(PROJECT_NAME)!"
 
 ## uninstall : Uninstall all scripts.
 .PHONY: uninstall
-uninstall: $(patsubst $(PREFIX)/bin/%, uninstall_%, $(INSTALL_PATH))
+uninstall: $(patsubst $(PREFIX)/bin/%, uninstall-%, $(INSTALL_PATH))
 	@echo
 	@echo "Finished uninstalling $(PROJECT_NAME)!"
 
 ## install-SCRIPT : Install individual script.
-.PHONY: install_%
+.PHONY: install-%
 install-%: $(SRC_PREFIX)/%
 	@echo "Installing $@..."
 	@cp -vp $< $(PREFIX)/bin/$(notdir $(basename $<))
 	@chmod 755 $(PREFIX)/bin/$(notdir $(basename $<))
 
 ## uninstall-SCRIPT : Uninstall individual script.
-.PHONY: uninstall_%
+.PHONY: uninstall-%
 uninstall-%: $(PREFIX)/bin/%
 	@echo "Uninstalling $<..."
 	@rm -vf $<
