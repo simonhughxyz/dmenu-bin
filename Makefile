@@ -1,7 +1,7 @@
 PROJECT_NAME := "dmenu-bin"
 PREFIX := /usr/local
 SRC_PREFIX := ./src
-SRC := $(patsubst $(SRC_PREFIX)/%, %, $(wildcard ./src/*.sh))
+SRC := $(patsubst $(SRC_PREFIX)/%, %, $(wildcard $(SRC_PREFIX)/*.sh))
 INSTALL_PATH := $(patsubst %.sh, $(PREFIX)/bin/%, $(SRC))
 
 .PHONY: all
