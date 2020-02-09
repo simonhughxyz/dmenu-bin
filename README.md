@@ -1,7 +1,7 @@
 # DMENU-BIN
 These are just a collection of scripts to use with dmenu for personal use.
 
-##Install
+## Install
 First you have to install dmenu.
 Either install it manually or it should be available in most repositories.
 
