@@ -8,7 +8,7 @@ dir="$HOME/rec/"
 now="$(date '+%Y-%m-%d_%H:%M:%S')"
 
 res=2560x1440
-fps=60
+fps=30
 
 # file to store recording processor ID so that you can kill it later
 recpid_file="$XDG_RUNTIME_DIR/recordingpid"
