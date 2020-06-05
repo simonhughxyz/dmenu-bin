@@ -55,5 +55,5 @@ case "$choice" in
     Pass) write $(get_pass);;                           # autotype pass
     Login) write $(get_login);;                         # autotype login
     OTP) write $(pass otp show "$password");;           # autotype OTP
-    URL) $BROWSER --new-tab "$(pass url "$password")";; # Visit URL
+    URL) $BROWSER --new-window "$(pass url "$password")";; # Visit URL
 esac

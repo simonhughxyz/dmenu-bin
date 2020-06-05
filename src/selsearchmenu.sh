@@ -65,7 +65,7 @@ elif [ "$choice" = "${se[13]}" ]; then
     url="https://www.ebay.co.uk/sch/i.html?_nkw=$selection"
 fi
 
-firefox --new-tab "$url"
+firefox --new-window "$url"
 
 # append searchterm to history file
 echo "$selection" >> $hfile
