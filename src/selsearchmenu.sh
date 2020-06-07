@@ -11,7 +11,7 @@ hfile="$XDG_RUNTIME_DIR/selsearchhistory"
 [ -f "$hfile" ] || touch "$hfile"
 
 # get primary selection and search history from $hfile and pass into dmenu
-selection=$(echo "$(xclip -o)" | tac - $hfile | awk 'NF' | dmenu -i -l 10 -p "Search Term: ") || exit 1
+selection=$(echo "$(xclip -o)" | tac - $hfile | awk 'NF' | dmenu -i -l 10 -p "Search Term: " | tr ' ' '+' ) || exit 1
 
 
 se[0]="Start Page"
