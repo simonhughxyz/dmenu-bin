@@ -9,4 +9,4 @@ choice="$( buku --np $@ -f 4 | sed '/^waiting for input$/d' | awk -F'\t' '{print
 
 # buku -o $choice
 
-$BROWSER --new-window "$(buku --np -p "$choice" -f1 | tail -n1 | cut -f2)" # Visit URL
+$BROWSER "$(buku --np -p "$choice" -f1 | tail -n1 | cut -f2)" # Visit URL
